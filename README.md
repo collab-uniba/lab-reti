@@ -1,4 +1,4 @@
-# Materiale per il laboratorio del Corso di Reti di Calcolatori 
+# Materiale per il laboratorio del Corso di Reti di Calcolatori
 
 ## Install Eclipse
 Download _'Eclipse IDE for C/C++ Developers'_ from [http://www.eclipse.org/downloads/packages](http://www.eclipse.org/downloads/packages). Make sure to select the right package for your architecture and OS.
@@ -7,7 +7,7 @@ Download _'Eclipse IDE for C/C++ Developers'_ from [http://www.eclipse.org/downl
 The installation of the GNU C Compiler depends on your OS.
 
 ### Mac OS X
-1. Install `homebrew` from  [https://brew.sh](https://brew.sh).
+1. Install `homebrew` from  [https://brew.sh](https://brew.sh)
 2. Install Xcode Command Line tools (without Xcode). From the terminal, run the following and then select `Install`:
 ```bash
 $ xcode-select --install

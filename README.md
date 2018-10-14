@@ -18,6 +18,7 @@ The installation of the GNU C Compiler depends on your OS.
 $ xcode-select --install
 ```
 If you have Xcode already installed, this step is not necessary.
+
 3. Double-check that everything works by running:
 ```bash
 $ gcc --version

@@ -1,5 +1,10 @@
 # Materiale per il laboratorio del Corso di Reti di Calcolatori
 
+**Sommario**
+- Guida di installazione
+- [Socket API reference (cheat sheet)](socket_API_reference.pdf)
+- [Esercizi](/esercizi)
+
 ## Install Eclipse
 Download _'Eclipse IDE for C/C++ Developers'_ from [http://www.eclipse.org/downloads/packages](http://www.eclipse.org/downloads/packages). Make sure to select the right package for your architecture and OS.
 

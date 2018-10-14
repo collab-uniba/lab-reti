@@ -1,12 +1,12 @@
 # Materiale per il laboratorio del Corso di Reti di Calcolatori
 
 **Sommario**
-- Guida di installazione
+- [Guida di installazione](guida)
 - [Socket API reference (cheat sheet)](socket_API_reference.pdf)
 - [Template per sorgente client/server in C](template.c)
 - [Esercizi](/esercizi)
 
-## Install Eclipse
+[guida](## Install Eclipse)
 Download _'Eclipse IDE for C/C++ Developers'_ from [http://www.eclipse.org/downloads/packages](http://www.eclipse.org/downloads/packages). Make sure to select the right package for your architecture and OS.
 
 ## Install GCC

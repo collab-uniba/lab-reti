@@ -4,7 +4,7 @@
 - [Development environment setup](#install-eclipse)
 - [Socket API reference (cheat sheet)](socket_API_reference.pdf)
 - [Client/server C source template](template.c)
-- [Exercises](/esercizi)
+- [Exercises](/exercises)
 
 ## Install Eclipse
 Download _'Eclipse IDE for C/C++ Developers'_ from [http://www.eclipse.org/downloads/packages](http://www.eclipse.org/downloads/packages). Make sure to select the right package for your architecture and OS.

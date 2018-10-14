@@ -3,6 +3,7 @@
 **Sommario**
 - Guida di installazione
 - [Socket API reference (cheat sheet)](socket_API_reference.pdf)
+- [Template per sorgente client/server in C](template.c)
 - [Esercizi](/esercizi)
 
 ## Install Eclipse

@@ -45,3 +45,6 @@ $ gcc --version
 > refreshenv
 > gcc --version
 ```
+
+Those who might have issues in setting up `mingw`, may instead install
+the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-win10) and use `gcc` from the Bash shell, after also following the instructions above.

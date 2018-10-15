@@ -10,7 +10,7 @@
 Download _Eclipse IDE for C/C++ Developers_ from [http://www.eclipse.org/downloads/packages](http://www.eclipse.org/downloads/packages). Make sure to select the right package for your architecture and OS.
 
 ## Install GCC
-The installation of the _GNU C Compiler (GCC)_ depends on your OS.
+The installation steps for the _GNU C Compiler (GCC)_ depend on your OS.
 
 ### Mac OS X
 1. Install [Homebrew](https://brew.sh)

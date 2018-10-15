@@ -7,14 +7,14 @@
 - [Exercises](exercises/)
 
 ## Install Eclipse
-Download _'Eclipse IDE for C/C++ Developers'_ from [http://www.eclipse.org/downloads/packages](http://www.eclipse.org/downloads/packages). Make sure to select the right package for your architecture and OS.
+Download _Eclipse IDE for C/C++ Developers_ from [http://www.eclipse.org/downloads/packages](http://www.eclipse.org/downloads/packages). Make sure to select the right package for your architecture and OS.
 
 ## Install GCC
-The installation of the GNU C Compiler depends on your OS.
+The installation steps for the _GNU C Compiler (GCC)_ depend on your OS.
 
 ### Mac OS X
-1. Install `homebrew` from  [https://brew.sh](https://brew.sh)
-2. Install Xcode Command Line tools (without Xcode). If you have Xcode already installed, this step is likely unnecessary.
+1. Install [Homebrew](https://brew.sh)
+2. Install _Xcode Command Line tools_ (without _Xcode_). If you have _Xcode_ already installed, this step is likely unnecessary.
 From the terminal, run the following and then select `Install`:
 ```bash
 $ xcode-select --install
@@ -35,7 +35,7 @@ $ gcc --version
 ```
 
 ### Windows
-1. Install `chocolatey` from [https://chocolatey.org/install](https://chocolatey.org/install)
+1. Install [chocolatey](https://chocolatey.org/install)
 2. From the command line, run:
 ```bash
 > choco install mingw -y
@@ -46,5 +46,5 @@ $ gcc --version
 > gcc --version
 ```
 
-Those who might have issues in setting up `mingw`, may instead install
+Those who might have issues in setting up _MinGW_, may instead install
 the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-win10) and use `gcc` from the Bash shell, after also following the instructions above.

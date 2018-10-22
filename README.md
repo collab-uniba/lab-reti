@@ -30,6 +30,9 @@ $ gcc --version
     4. From now on, for each project, right-click to show the context menu and select _Debug as > Debug Configurations..._; then, change or update the debug configuration from _GDB_ to _LLDB_, as shown in the pic below.
     
     ![alt text](https://wiki.eclipse.org/images/b/ba/Lldb-set-delagate.png)
+    
+    5. For more information, see the [Official wiki support page](https://wiki.eclipse.org/CDT/User/FAQ#How_do_I_get_the_LLDB_debugger.3F).
+ 
 
 ### Linux (Debian derivative distros)
 1. From the terminal, run:

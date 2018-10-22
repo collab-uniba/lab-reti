@@ -23,6 +23,10 @@ $ xcode-select --install
 ```bash
 $ gcc --version
 ```
+4. To configure the `lldb` debugger (_Xcode_ own debugger), first launch Eclipse; then:
+    1. Go to _Help > Install new Software_
+    2. Select the _CDT update site_ (9.1 or greater) from the dropdown list
+    3. Under _CDT Optional Features_, select **_C/C++ LLDB Debugger Integration_**
 
 ### Linux (Debian derivative distros)
 1. From the terminal, run:

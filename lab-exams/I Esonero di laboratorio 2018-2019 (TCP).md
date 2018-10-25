@@ -8,7 +8,7 @@ Progettare ed implementare un'applicazione TCP client/server, dove il server è 
 5. Il client legge la risposta inviata dal server e la visualizza sullo standard output.
 6. Il client legge dallo standard input la successiva operazione da compiere.
 7. Se invece di un'operazione è inserito il carattere `=`, il client chiude la connessione con il server e termina qui il suo processo; altrimenti, torna al punto 4.
-8. Il server non termina mai il suo processo e deve essere in grado di accettare una coda massima di 6 client contemporaneamente.
+8. Il server non termina mai il suo processo e deve essere in grado di accettare una coda massima di 6 client contemporaneamente.
 
 **NOTE:**
 - Creare le funzioni matematiche utilizzando i seguenti nomi: `add()`, `mult()`, `sub()` e `div()`.

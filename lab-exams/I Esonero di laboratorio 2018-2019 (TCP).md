@@ -17,6 +17,6 @@ Progettare ed implementare un'applicazione TCP client/server, dove il server è 
 
 - La consegna deve avvenire di persona durante le lezioni di laboratorio di venerdì 9 novembre o, in alternative, di venerdì 16 novembre. Qualora l'esonero sia stato svolto in coppia, entrambi gli studenti dovranno essere presenti.
 
-- La correzione sarà contestuale alla consegna.
+- La correzione sarà contestuale alla consegna.
 
-- Gli ammessi potranno sostenere la seconda prova di esonero su UDP.
+- Gli ammessi potranno sostenere la seconda prova di esonero su UDP.

@@ -15,7 +15,7 @@ Progettare ed implementare un'applicazione TCP client/server, dove il server è 
 
 - Non saranno accettate consegne di studenti che non si sono opportunamente registrati sul form di prenotazione pubblicato sulla piattaforma ADA.
 
-- La consegna deve avvenire di persona durante le lezioni di laboratorio di venerdì 9 novembre o, in alternative, di venerdì 16 novembre. Qualora l'esonero sia stato svolto in coppia, entrambi gli studenti dovranno essere presenti.
+- La consegna deve avvenire di persona durante le lezioni di laboratorio di venerdì 9 novembre o, in alternative, di venerdì 16 novembre. Qualora l'esonero sia stato svolto in coppia, entrambi gli studenti dovranno essere presenti.
 
 - La correzione sarà contestuale alla consegna.
 

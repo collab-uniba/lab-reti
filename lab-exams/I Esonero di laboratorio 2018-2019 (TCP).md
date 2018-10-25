@@ -11,9 +11,12 @@ Progettare ed implementare un'applicazione TCP client/server, dove il server è 
 8. Il server non termina mai il suo processo e deve essere in grado di accettare una coda massima di 6 client contemporaneamente.
 
 **NOTE:**
-
 - Creare le funzioni matematiche utilizzando i seguenti nomi: add(), mult(), sub() e div().
-- Non saranno accettate consegne di studenti che non si sono opportunamente registrati sul form di prenotazione pubblicato sulla piattaforma ADA.
+
+- Non saranno accettate consegne di studenti che non si sono opportunamente registrati sul form di prenotazione pubblicato sulla piattaforma ADA.
+
 - La consegna deve avvenire di persona durante le lezioni di laboratorio di venerdì 9 novembre o, in alternative, di venerdì 16 novembre. Qualora l'esonero sia stato svolto in coppia, entrambi gli studenti dovranno essere presenti.
+
 - La correzione sarà contestuale alla consegna.
+
 - Gli ammessi potranno sostenere la seconda prova di esonero su UDP.

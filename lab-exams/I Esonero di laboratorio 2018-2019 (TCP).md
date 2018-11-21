@@ -11,7 +11,7 @@ Progettare ed implementare un'applicazione TCP client/server, dove il server è 
 8. Il server non termina mai il suo processo e deve essere in grado di accettare una coda massima di 6 client contemporaneamente.
 
 **NOTE:**
-- Creare le funzioni matematiche utilizzando i seguenti nomi: `add()`, `mult()`, `sub()` e `div()`.
+- Creare le funzioni matematiche utilizzando i seguenti nomi: `add()`, `mult()`, `sub()` e `divis()`.
 
 - Non saranno accettate consegne di studenti che non si sono opportunamente registrati sul form di prenotazione pubblicato sulla piattaforma ADA.
 

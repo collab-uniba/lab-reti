@@ -11,7 +11,7 @@ Progettare ed implementare un'applicazione UDP client/server, dove il server è 
     * `23 / 45 = 0.51` per la divisione;
     * `23 * 45 = 1,035` per il prodotto;
     * `23 - 45 = -22` per la sottrazione.
-7. Il client legge la risposta inviata dal server e visualizza la risposta sullo std output (Esempio: `Ricevuto risultato dal server srv.di.uniba.it, ip 193.204.187.166: 23 + 45 = 68`)
+7. Il client legge la risposta inviata dal server e visualizza la risposta sullo std output (Esempio: `Ricevuto risultato dal server srv.di.uniba.it, ip 193.204.187.166: 23 + 45 = 68`).
 8. Il client legge dallo standard input la successiva operazione da compiere.
 9. Se invece di un'operazione è inserito il carattere `=`, il client chiude la connessione con il server e termina qui il suo processo; altrimenti, torna al punto 2.
 10. Il server non termina mai il suo processo e deve essere in grado di accettare una coda massima di 6 client contemporaneamente.

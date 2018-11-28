@@ -21,7 +21,7 @@ Progettare ed implementare un'applicazione UDP client/server, dove il server è 
 
 - Usare un file `.h` per racchiudere le specifiche di protocollo applicativo condivise fra client e server.
 
-- Non saranno accettate consegne di studenti che non hanno sostenuto il primo esonero di laboratior.
+- Non saranno accettate consegne di studenti che non hanno sostenuto con successo il primo esonero di laboratorio.
 
 - La consegna deve avvenire di persona durante le lezioni di laboratorio di **venerdì 7 dicembre** o, in alternativa, di **venerdì 14 dicembre**. Qualora l'esonero sia stato svolto in coppia, entrambi gli studenti dovranno essere presenti.
 

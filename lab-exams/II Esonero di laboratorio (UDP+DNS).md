@@ -1,4 +1,4 @@
-**Secondo esonero di Laboratorio - Reti di Calcolatori (INF) A.A. 2018/2019**
+**Secondo esonero di Laboratorio - Reti di Calcolatori (INF)**
 
 Progettare ed implementare un'applicazione UDP client/server, dove il server è una calcolatrice remota che risponde alle richieste del client nel seguente modo:
 1. Il client legge da tastiera il *nome* e il numero di porta del server UDP da contattare, rispettando il seguente formato : `srv.di.uniba.it:56700`.
@@ -23,8 +23,8 @@ Progettare ed implementare un'applicazione UDP client/server, dove il server è 
 
 - Non saranno accettate consegne di studenti che non hanno sostenuto con successo il primo esonero di laboratorio.
 
-- La consegna deve avvenire di persona durante le lezioni di laboratorio di **venerdì 7 dicembre** o, in alternativa, di **venerdì 14 dicembre**. Qualora l'esonero sia stato svolto in coppia, entrambi gli studenti dovranno essere presenti.
+- La consegna dovr avvenire entro **TBD** attraverso questo form.
 
-- La correzione sarà contestuale alla consegna.
+- L'elenco degli ammessi sarà pubblicato online a questo indirizzo (TBD).
 
-- Gli ammessi al secondo esonero di laboratorio potranno (i) sostenere la prova scritta oppure (ii) verbalizzare direttamente il voto di esonero scritto.
+- Gli ammessi al secondo esonero di laboratorio potranno sostenere direttamente la prova scritta, previa prenotazione su ESSE3.

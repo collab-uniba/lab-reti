@@ -1,4 +1,4 @@
-**Primo esonero di Laboratorio - Reti di Calcolatori (INF) A.A. 2018/2019**
+**Primo esonero di Laboratorio - Reti di Calcolatori (INF)**
 
 Progettare ed implementare un'applicazione TCP client/server, dove il server è una calcolatrice remota che risponde alle richieste del client nel seguente modo:
 1. Il client legge dallo standard input l'indirizzo e il numero di porta del server (es. `58000`), dopodiché richiede la connessione al server.
@@ -15,8 +15,6 @@ Progettare ed implementare un'applicazione TCP client/server, dove il server è 
 
 - Non saranno accettate consegne di studenti che non si sono opportunamente registrati sul form di prenotazione pubblicato sulla piattaforma ADA.
 
-- La consegna deve avvenire di persona durante le lezioni di laboratorio di **venerdì 9 novembre** o, in alternativa, di **venerdì 16 novembre**. Qualora l'esonero sia stato svolto in coppia, entrambi gli studenti dovranno essere presenti.
+- La consegna deve avvenire entro **TBD** attraverso questo form.
 
-- La correzione sarà contestuale alla consegna.
-
-- Gli ammessi potranno sostenere la seconda prova di esonero su UDP.
+- L'elenco delgi ammessi sar pubblicato qui. Gli ammessi potranno sostenere la seconda prova di esonero su UDP.

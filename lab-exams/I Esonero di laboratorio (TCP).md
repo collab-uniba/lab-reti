@@ -13,8 +13,6 @@ Progettare ed implementare un'applicazione TCP client/server, dove il server è 
 **NOTE:**
 - Creare le funzioni matematiche utilizzando i seguenti nomi: `add()`, `mult()`, `sub()` e `divis()`.
 
-- Non saranno accettate consegne di studenti che non si sono opportunamente registrati sul form di prenotazione pubblicato sulla piattaforma ADA.
+- La consegna deve avvenire entro il **18 novembre** attraverso questo [form](https://forms.gle/4rM7u38nu5voJ1at8).
 
-- La consegna deve avvenire entro **TBD** attraverso questo form.
-
-- L'elenco delgi ammessi sar pubblicato qui. Gli ammessi potranno sostenere la seconda prova di esonero su UDP.
+- L'elenco deglii ammessi sarà pubblicato [qui](TBD); gli ammessi potranno sostenere la seconda prova di esonero su UDP.

@@ -23,8 +23,8 @@ Progettare ed implementare un'applicazione UDP client/server, dove il server è 
 
 - Non saranno accettate consegne di studenti che non hanno sostenuto con successo il primo esonero di laboratorio.
 
-- La consegna dovr avvenire entro **TBD** attraverso questo form.
+- La consegna dovr avvenire entro il **9 dicembre** attraverso questo [form](https://forms.gle/iZiTXeUMfh93i5GK6).
 
-- L'elenco degli ammessi sarà pubblicato online a questo indirizzo (TBD).
+- L'elenco degli ammessi sarà pubblicato online a questo [indirizzo](TBD).
 
-- Gli ammessi al secondo esonero di laboratorio potranno sostenere direttamente la prova scritta, previa prenotazione su ESSE3.
+- Gli student che avranno superato anche la seconda prova pratica di laboratorio potranno sostenere direttamente la prova di esame scritta, previa prenotazione su ESSE3.

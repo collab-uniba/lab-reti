@@ -5,7 +5,7 @@
 - [Socket API reference (cheat sheet)](socket_API_reference.pdf)
 - [Client/server C source template](template.c)
 - [Lab exercises](exercises/)
-- [Lab exams](lab-exams/)
+<!-- - [Lab exams](lab-exams/) -->
 
 ## Install Eclipse
 Download _Eclipse IDE for C/C++ Developers_ from [http://www.eclipse.org/downloads/packages](http://www.eclipse.org/downloads/packages). Make sure to select the right package for your architecture and OS.

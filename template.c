@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
 	WSADATA wsa_data;
 	int result =
 	WSAStartup(MAKEWORD(2,2), &wsa_data);
-	if (result != 0) {
+	if (result != NO_ERROR) {
 		printf("Error at WSAStartup()\n");
 		return 0;
 	}

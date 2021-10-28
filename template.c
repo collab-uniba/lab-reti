@@ -14,6 +14,12 @@
 #include <stdio.h>
 //...
 
+void clearwinsock() {
+#if defined WIN32
+	WSACleanup();
+#endif
+}
+
 int main(int argc, char *argv[]) {
 	//...
 #if defined WIN32
@@ -31,8 +37,6 @@ int main(int argc, char *argv[]) {
 	//...
 
 	closesocket(my_socket);
-#if defined WIN32
-	WSACleanup();
-#endif
+	clearwinsock(),
 	return 0;
 } // main end

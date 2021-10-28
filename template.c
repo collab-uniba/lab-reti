@@ -14,6 +14,7 @@
 #include <stdio.h>
 //...
 
+#define NO_ERROR 0
 void clearwinsock() {
 #if defined WIN32
 	WSACleanup();
@@ -25,8 +26,7 @@ int main(int argc, char *argv[]) {
 #if defined WIN32
 	// Initialize Winsock
 	WSADATA wsa_data;
-	int result =
-	WSAStartup(MAKEWORD(2,2), &wsa_data);
+	int result = WSAStartup(MAKEWORD(2,2), &wsa_data);
 	if (result != NO_ERROR) {
 		printf("Error at WSAStartup()\n");
 		return 0;
@@ -37,6 +37,6 @@ int main(int argc, char *argv[]) {
 	//...
 
 	closesocket(my_socket);
-	clearwinsock(),
+	clearwinsock();
 	return 0;
 } // main end

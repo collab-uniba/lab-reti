@@ -9,7 +9,7 @@ Progettare ed implementare un'applicazione UDP client/server, dove il server è 
 5. Il server segue l'operazione richiesta e invia il risultato al client ***nell'esatto formato*** indicato negli esempi riportati di seguito:
     * `23 + 45 = 68` per l'addizione;
     * `23 / 45 = 0.51` per la divisione;
-    * `23 * 45 = 1,035` per il prodotto;
+    * `23 * 45 = 1035` per il prodotto;
     * `23 - 45 = -22` per la sottrazione.
 6. Il client legge la risposta inviata dal server e visualizza la risposta sullo std output (Esempio: `Ricevuto risultato dal server srv.di.uniba.it, ip 193.204.187.166: 23 + 45 = 68`).
 7. Il client legge dallo standard input la successiva operazione da compiere.

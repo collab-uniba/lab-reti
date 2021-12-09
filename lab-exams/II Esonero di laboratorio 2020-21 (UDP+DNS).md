@@ -1,4 +1,4 @@
-# Secondo esonero di Laboratorio - Reti di Calcolatori (INF) aa 20-21  :santa: :christmas_tree: 🎁
+# Secondo esonero di Laboratorio - Reti di Calcolatori (INF) aa 20-21 🎅 🎄 🎁
 
 Progettare ed implementare un'applicazione UDP client/server, dove il server è una calcolatrice remota che risponde alle richieste del client nel seguente modo:
 

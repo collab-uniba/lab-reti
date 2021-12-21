@@ -28,5 +28,5 @@ Progettare ed implementare un'applicazione UDP client/server, dove il server è 
 ## NOTE
 
 * La consegna dovrà avvenire entro il **19 dicembre** attraverso questo [form](https://forms.gle/iZiTXeUMfh93i5GK6).
-* L'elenco degli ammessi sarà pubblicato online a questo [indirizzo](TBD).
+* L'elenco degli ammessi sarà pubblicato online a questo [indirizzo](https://docs.google.com/spreadsheets/d/1Aq4k6rSwgSAfCD4b9V_xQLL115jAo8g4/edit?usp=sharing&ouid=116305547765435826239&rtpof=true&sd=true).
 * Gli studenti che avranno superato anche la seconda prova pratica di laboratorio potranno sostenere direttamente la prova di esame scritta, previa prenotazione su ESSE3.

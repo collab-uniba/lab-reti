@@ -1,4 +1,4 @@
-# Primo esonero di Laboratorio - Reti di Calcolatori (INF) aa 22-23
+# Primo esonero di Laboratorio - Reti di Calcolatori (ITPS-A) aa 22-23
 
 Progettare ed implementare un'applicazione TCP client/server, dove il server è una calcolatrice remota che risponde alle richieste del client nel seguente modo:
 
@@ -16,11 +16,12 @@ Progettare ed implementare un'applicazione TCP client/server, dove il server è 
 * Il protocollo applicativo condiviso fra client e server deve essere specificato tramite file header `.h`.
 * Creare le funzioni matematiche utilizzando i seguenti nomi: `add()`, `mult()`, `sub()` e `division()`.
 * La lettura da riga di comando è effettuata in una singola lettura (ossia `+ 23 45[invio]`, non `+[invio]23[invio]45[invio]`).
-* Il client e il server devono potersi avviare senza parametri passati da riga di comando, ossia useranno un indirizzo ip e numero di porta predefiniti.
+* Il client e il server devono potersi avviare senza parametri passati da riga di comando, ossia useranno un indirizzo ip e numero di porta di default predefiniti.
 * Le operazioni sono da intendersi indipendenti l'una dall'altra (ossia, i risultati delle operazioni non sono cumulativi).
 * Codice e commenti dovranno essere scritti in inglese.
 
 ## NOTE
 
-* La consegna deve avvenire entro il **25 novembre** attraverso questo [form](https://forms.gle/4rM7u38nu5voJ1at8).
-* L'elenco deglii ammessi sarà pubblicato a tempo debito [qui](https://docs.google.com/spreadsheets/d/1h0NaxcHN8Pe-E2pTPUG3Pz-cxb8cLJSg0ZX_sjo1V8A/edit?usp=sharing); gli ammessi potranno sostenere automaticamente la seconda prova di esonero su UDP.
+* La consegna deve avvenire entro la mezzanote del giorno **25 novembre** attraverso questo [form](https://forms.gle/hbLjWcVU2qpJBhyt6).
+* L'elenco deglii ammessi sarà pubblicato a tempo debito [qui](https://docs.google.com/spreadsheets/d/1_aaTtS-qDnmp58Ha0RAPUVhUQVMRe6retSzbQJBVIXo/edit?usp=sharing).
+* Gli ammessi potranno sostenere la seconda prova di esonero su UDP.

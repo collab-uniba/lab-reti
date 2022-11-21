@@ -2,7 +2,7 @@
 
 Progettare ed implementare un'applicazione TCP client/server, dove il server è una calcolatrice remota che risponde alle richieste del client nel seguente modo:
 
-1. Una volta avviato, il client stablisce automaticamente la connessione al server (sulla porta e indirizzo noti).
+1. Una volta avviato, il client stablisce automaticamente la connessione al server (sulla porta e indirizzo da voi stabiliti).
 2. Ricevuta la connessione, il server visualizza sullo standard output l'indirizzo e il numero di porta del client, scrivendo "*Connection established with `xxx.xxx.xxx.xxx:yyyyy`"*.
 3. Stabilita la connessione, il client legge l'operazione da compiere (usando i caratteri `+`, `x`, `-`, `/`, rispettivamente per _Addizione_, _Moltiplicazione_, _Sottrazione_ e _Divisione_) e due numeri interi dallo standard input (es. `+ 23 45`) ed invia al server quanto letto da tastiera.
 4. Il server legge quanto inviato dal client, esegue l'operazione richiesta e invia il risultato al client (es. `68`).

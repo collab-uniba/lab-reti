@@ -21,7 +21,6 @@ Progettare ed implementare un'applicazione UDP client/server, dove il server è 
 * Il protocollo applicativo condiviso fra client e server deve essere specificato tramite file header `.h`.
 * Creare le funzioni matematiche utilizzando i seguenti nomi: `add()`, `mult()`, `sub()` e `division()`.
 * La lettura da riga di comando è effettuata in una singola lettura (ossia `+ 23 45[invio]`, non `+[invio]23[invio]45[invio]`).
-* Il client e il server devono _anche_ potersi avviare senza parametri passati da riga di comando, ossia useranno un indirizzo ip e numero di porta predefiniti.
 * Le operazioni sono da intendersi indipendenti l'una dall'altra (ossia, i risultati delle operazioni non sono cumulativi).
 * Codice e commenti dovranno essere scritti in inglese.
 

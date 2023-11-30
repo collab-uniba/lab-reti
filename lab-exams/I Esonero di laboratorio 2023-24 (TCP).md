@@ -24,5 +24,5 @@ Progettare ed implementare un'applicazione TCP client/server, dove il server è 
 
 * La consegna deve avvenire entro la mezzanotte del giorno **24 novembre** attraverso questo [form](https://forms.gle/cJKPg6F6iu5TnJpp6).
 * E' sufficiente una prenotazione sola per coppia.
-* L'elenco degli ammessi sarà pubblicato a tempo debito a questo [indirizzo]().
+* L'elenco degli ammessi sarà pubblicato a tempo debito a questo [indirizzo](https://docs.google.com/spreadsheets/d/1X_8j3Y1_WaVgdy8U3xHuedhgR8CJZ1UMmBsKSlfviW4/edit?usp=sharing).
 * Gli ammessi potranno automaticamente sostenere la seconda prova di esonero su UDP.

@@ -28,6 +28,6 @@ Progettare ed implementare un'applicazione UDP client/server, dove il server è 
 ## NOTE
 
 * La consegna dovrà avvenire entro il **22 dicembre** attraverso questo [form](https://forms.gle/qksbBpiEUKx62Q6v8).
-* L'elenco degli ammessi sarà pubblicato online a tempo debito a questo [indirizzo]()(tbd).
+* L'elenco degli ammessi sarà pubblicato online a tempo debito a questo [indirizzo](https://docs.google.com/spreadsheets/d/1y5gbr2HqOpPLJQMpx6T_Fkq2g2SorWXbcMX5J_XRJdg/edit?usp=sharing).
 * Gli studenti che avranno superato anche la seconda prova pratica di laboratorio potranno sostenere direttamente la prova di esame scritta, _previa prenotazione su ESSE3 con indicazione nel campo note di aver già superato la prova di laboratorio attraverso gli esoneri durante il corso_.
 * L'esonero sarà valido fino all'inizio del successivo insegnamento per l'a.a. 24/25.

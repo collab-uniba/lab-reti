@@ -1,6 +1,6 @@
 # Secondo esonero di Laboratorio - Reti di Calcolatori (ITPS A-L) a.a. '24-25 🎅 🎄 🎁
 
-Progettare ed implementare un'applicazione TCP client/server, dove il server è un generatore di password che risponde alle richieste del client nel seguente modo:
+Progettare ed implementare un'applicazione UDP client/server, dove il server è un generatore di password che risponde alle richieste del client nel seguente modo:
 
 1. Il client usa una socket UDP per inviare datagrammi al server all'indirizzo `passwdgen.uniba.it` (sulla porta da voi stabilita).
 2. Quando il server riceve un datagramma da un client, visualizza sullo standard output l'indirizzo e il numero di porta del mittente, scrivendo "*New request from from `xxx.xxx.xxx.xxx:yyyyy`*".

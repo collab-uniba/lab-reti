@@ -46,12 +46,25 @@ $ gcc --version
 ```
 
 ### Windows
-1. Install [chocolatey](https://chocolatey.org/install)
-2. From the command line, run:
+Use command-line package managers, such as [chocolatey](https://chocolatey.org/install) or [WinGet](https://learn.microsoft.com/en-us/windows/package-manager/winget/)
+
+#### Chocolatey
+From the command line, run:
 ```bash
 > choco install mingw -y
 ```
-3. Double-check that everything works by running:
+
+### WinGet
+From the command line, run:
+```bash
+> winget install MSYS2.MSYS2
+```
+Then, run `MSYS2` to open the MSYS2 terminal and execute this command:
+```bash
+> pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain
+```
+
+After installing _MinGW_, double-check that everything works by running in the Windows terminal:
 ```bash
 > refreshenv
 > gcc --version

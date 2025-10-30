@@ -54,7 +54,7 @@ From the command line, run:
 > choco install mingw -y
 ```
 
-### WinGet
+#### WinGet
 From the command line, run:
 ```bash
 > winget install MSYS2.MSYS2

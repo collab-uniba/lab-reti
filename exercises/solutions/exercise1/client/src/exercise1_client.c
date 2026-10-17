@@ -1,7 +1,6 @@
-#if defined WIN32
-#include <winsock.h>
+#if defined _WIN32
+#include <winsock2.h>
 #else
-#include <string.h>
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -12,10 +11,12 @@
 #endif
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "protocol.h"
 
 void clearwinsock() {
-#if defined WIN32
+#if defined _WIN32
 	WSACleanup();
 #endif
 }
@@ -24,14 +25,37 @@ void errorhandler(char *errorMessage) {
 	printf("%s", errorMessage);
 }
 
-int main(int argc, char *argv[]) {
-#if defined WIN32
+/* TCP is a byte stream: a single recv() may return only part of the
+ * message, so the fixed-size message is received in a loop */
+int recv_all(int socket, char *buf, int len) {
+	int total = 0;
+	while (total < len) {
+		int n = recv(socket, buf + total, len - total, 0);
+		if (n <= 0) {
+			return n;
+		}
+		total += n;
+	}
+	return total;
+}
+
+/* reads a line from stdin into s, removing the trailing newline */
+void read_line(const char *prompt, char *s, int size) {
+	printf("%s", prompt);
+	if (fgets(s, size, stdin) == NULL) {
+		s[0] = '\0';
+	}
+	s[strcspn(s, "\r\n")] = '\0';
+}
+
+int main(void) {
+#if defined _WIN32
 	// Initialize Winsock
 	WSADATA wsa_data;
 	int result = WSAStartup(MAKEWORD(2,2), &wsa_data);
-	if (result != NO_ERROR) {
+	if (result != 0) {
 		printf("Error at WSAStartup()\n");
-		return 0;
+		return EXIT_FAILURE;
 	}
 #endif
 
@@ -40,9 +64,8 @@ int main(int argc, char *argv[]) {
 	c_socket = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
 	if (c_socket < 0) {
 		errorhandler("socket creation failed.\n");
-		closesocket(c_socket);
 		clearwinsock();
-		return -1;
+		return EXIT_FAILURE;
 	}
 
 	// set connection settings
@@ -57,52 +80,47 @@ int main(int argc, char *argv[]) {
 		errorhandler("Failed to connect.\n");
 		closesocket(c_socket);
 		clearwinsock();
-		return -1;
+		return EXIT_FAILURE;
 	}
 
-	// receive from server
+	// receive the welcome message from server
 	char buffer[BUFFER_SIZE];
 	memset(buffer, '\0', BUFFER_SIZE);
 	if ((recv(c_socket, buffer, BUFFER_SIZE - 1, 0)) <= 0) {
-		errorhandler("recv() failed or connection closed prematurely");
+		errorhandler("recv() failed or connection closed prematurely\n");
 		closesocket(c_socket);
 		clearwinsock();
-		return -1;
+		return EXIT_FAILURE;
 	}
-	printf("%s\n", buffer); // Print the echo buffer
+	printf("%s\n", buffer);
 
 	// get data from user
-	char string1[BUFFER_SIZE];
-	memset(string1, '\0', BUFFER_SIZE);
-	printf("Enter the first string: ");
-	scanf("%s", string1);
-	char string2[BUFFER_SIZE];
-	memset(string2, '\0', BUFFER_SIZE);
-	printf("Enter the second string: ");
-	scanf("%s", string2);
 	msg m;
-	strcpy(m.string1, string1);
-	strcpy(m.string2, string2);
+	memset(&m, '\0', sizeof(msg));
+	read_line("Enter the first string: ", m.string1, BUFFER_SIZE);
+	read_line("Enter the second string: ", m.string2, BUFFER_SIZE);
 
 	// send data to server
-	if (send(c_socket, &m, sizeof(msg), 0) != sizeof(msg)) {
-		errorhandler("send() sent a different number of bytes than expected");
+	if (send(c_socket, (char*) &m, sizeof(msg), 0) != (int) sizeof(msg)) {
+		errorhandler("send() sent a different number of bytes than expected\n");
 		closesocket(c_socket);
 		clearwinsock();
-		return -1;
+		return EXIT_FAILURE;
 	}
 
 	// get reply from server
-	if ((recv(c_socket, &m, sizeof(msg), 0)) <= 0) {
-		errorhandler("recv() failed or connection closed prematurely");
+	if (recv_all(c_socket, (char*) &m, sizeof(msg)) <= 0) {
+		errorhandler("recv() failed or connection closed prematurely\n");
 		closesocket(c_socket);
 		clearwinsock();
-		return -1;
+		return EXIT_FAILURE;
 	}
+	m.string1[BUFFER_SIZE - 1] = '\0';
+	m.string2[BUFFER_SIZE - 1] = '\0';
 	printf("First string to upper: %s\n", m.string1);
 	printf("Second string to lower: %s\n", m.string2);
 
 	closesocket(c_socket);
 	clearwinsock();
-	return 0;
+	return EXIT_SUCCESS;
 } // main end

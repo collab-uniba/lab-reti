@@ -1,16 +1,13 @@
 /*
  ============================================================================
- Name        : esercizio2_client.c
- Author      :
- Version     :
- Copyright   : Your copyright notice
- Description : Hello World in C, Ansi-style
+ Name        : exercise2_client.c
+ Description : Exercise 2 (UDP + DNS) - client
  ============================================================================
  */
-#if defined WIN32
-#include <winsock.h>
+#if defined _WIN32
+#include <winsock2.h>
+#include <ws2tcpip.h> // getaddrinfo(), getnameinfo(); link with ws2_32
 #else
-#include <string.h>
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -24,12 +21,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define NO_ERROR 0
 #define BUFFMAX 255
 
 void clearwinsock()
 {
-#if defined WIN32
+#if defined _WIN32
 	WSACleanup();
 #endif
 }
@@ -41,40 +37,59 @@ void errorhandler(const char *error_message)
 
 int main(void)
 {
-#if defined WIN32
+#if defined _WIN32
 	// Initialize Winsock
 	WSADATA wsa_data;
 	int result = WSAStartup(MAKEWORD(2, 2), &wsa_data);
-	if (result != NO_ERROR)
+	if (result != 0)
 	{
 		printf("Error at WSAStartup()\n");
-		return 0;
+		return EXIT_FAILURE;
 	}
 #endif
 
-	/* reads the name and port of the UDP server to contact (in the format srv.di.uniba.it:56700)*/
+	/* reads the name and port of the UDP server to contact (in the format srv.di.uniba.it:56700) */
 	char buffer[BUFFMAX];
 	memset(buffer, 0, BUFFMAX);
-	char *delim = ":";
 	puts("Enter the server name and port (in the format servername:port):");
-	fgets(buffer, BUFFMAX, stdin);
-	/* split buffer into name:port */
-	char *name = strtok(buffer, delim);
-	int port = atoi(strtok(NULL, delim));
-	struct hostent *host = gethostbyname(name);
-	if (host == NULL)
+	if (fgets(buffer, BUFFMAX, stdin) == NULL)
 	{
-		errorhandler("Error getting host");
+		errorhandler("Error reading input");
 		clearwinsock();
 		return EXIT_FAILURE;
 	}
-	printf("Server name: %s (IP: %s, port: %d)\n", name, inet_ntoa(*(struct in_addr *)host->h_addr), port);
+	buffer[strcspn(buffer, "\r\n")] = '\0';
+	/* split buffer into name:port */
+	char *name = strtok(buffer, ":");
+	char *port = strtok(NULL, ":");
+	if (name == NULL || port == NULL)
+	{
+		errorhandler("Invalid format: expected servername:port");
+		clearwinsock();
+		return EXIT_FAILURE;
+	}
+	char server_name[BUFFMAX];
+	strcpy(server_name, name);
+
+	/* resolve name and port: with service != NULL, getaddrinfo() also sets the port */
+	struct addrinfo hints, *res;
+	memset(&hints, 0, sizeof(hints));
+	hints.ai_family = AF_INET;
+	hints.ai_socktype = SOCK_DGRAM;
+	int err = getaddrinfo(name, port, &hints, &res);
+	if (err != 0)
+	{
+		printf("getaddrinfo() failed: %s\n", gai_strerror(err));
+		clearwinsock();
+		return EXIT_FAILURE;
+	}
+	struct sockaddr_in server_address;
+	memcpy(&server_address, res->ai_addr, sizeof(server_address));
+	freeaddrinfo(res);
+	printf("Server name: %s (IP: %s, port: %d)\n", server_name,
+		   inet_ntoa(server_address.sin_addr), ntohs(server_address.sin_port));
 
 	int my_socket;
-	struct sockaddr_in server_address;
-	unsigned int server_address_size = sizeof(server_address);
-	int rcv_msg_size;
-
 	/* create a UDP socket */
 	if ((my_socket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP)) < 0)
 	{
@@ -83,16 +98,11 @@ int main(void)
 		return EXIT_FAILURE;
 	}
 
-	/* set the server address */
-	memset(&server_address, 0, sizeof(server_address));
-	server_address.sin_family = AF_INET;
-	server_address.sin_port = htons(port);
-	server_address.sin_addr = *((struct in_addr *)host->h_addr);
-
 	char *message = "Helo";
+	int len = strlen(message);
 	/* send a Helo message to the server */
-	if (sendto(my_socket, message, strlen(message), 0,
-			   (struct sockaddr *)&server_address, sizeof(server_address)) != strlen(message))
+	if (sendto(my_socket, message, len, 0,
+			   (struct sockaddr *)&server_address, sizeof(server_address)) != len)
 	{
 		errorhandler("Error sending Helo");
 		closesocket(my_socket);
@@ -102,10 +112,15 @@ int main(void)
 
 	puts("Enter the string to send to the server:");
 	memset(buffer, 0, BUFFMAX);
-	fgets(buffer, BUFFMAX, stdin);
+	if (fgets(buffer, BUFFMAX, stdin) == NULL)
+	{
+		buffer[0] = '\0';
+	}
+	buffer[strcspn(buffer, "\r\n")] = '\0';
 	/* send a message to the server */
-	if (sendto(my_socket, buffer, strlen(buffer), 0,
-			   (struct sockaddr *)&server_address, sizeof(server_address)) != strlen(buffer))
+	len = strlen(buffer);
+	if (sendto(my_socket, buffer, len, 0,
+			   (struct sockaddr *)&server_address, sizeof(server_address)) != len)
 	{
 		errorhandler("Error sending data");
 		closesocket(my_socket);
@@ -114,21 +129,27 @@ int main(void)
 	}
 
 	/* receive a message from the server */
+	struct sockaddr_in from_address;
+	unsigned int from_address_size = sizeof(from_address);
+	int rcv_msg_size;
 	memset(buffer, 0, BUFFMAX);
-	if ((rcv_msg_size = recvfrom(my_socket, buffer, BUFFMAX, 0,
-								 (struct sockaddr *)&server_address, &server_address_size)) < 0)
+	if ((rcv_msg_size = recvfrom(my_socket, buffer, BUFFMAX - 1, 0,
+								 (struct sockaddr *)&from_address, &from_address_size)) < 0)
 	{
 		errorhandler("Error receiving data");
 		closesocket(my_socket);
 		clearwinsock();
 		return EXIT_FAILURE;
 	}
+	buffer[rcv_msg_size] = '\0';
 
-	/* print the received message */
-	printf("Received: %s", buffer);
+	/* print the received message with the server name and address */
+	char ip[64];
+	getnameinfo((struct sockaddr *)&from_address, sizeof(from_address), ip, sizeof(ip),
+				NULL, 0, NI_NUMERICHOST);
+	printf("Stringa '%s' ricevuta dal server nome: %s indirizzo: %s\n", buffer, server_name, ip);
 
 	closesocket(my_socket);
 	clearwinsock();
 	return EXIT_SUCCESS;
 }
-

@@ -1,7 +1,7 @@
-#if defined WIN32
-#include <winsock.h>
+#if defined _WIN32
+#include <winsock2.h>
+#include <ws2tcpip.h> // getaddrinfo(), getnameinfo(); link with ws2_32
 #else
-#include <string.h>
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -12,24 +12,25 @@
 #endif
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 //...
 
-#define NO_ERROR 0
 void clearwinsock() {
-#if defined WIN32
+#if defined _WIN32
 	WSACleanup();
 #endif
 }
 
 int main(int argc, char *argv[]) {
 	//...
-#if defined WIN32
+#if defined _WIN32
 	// Initialize Winsock
 	WSADATA wsa_data;
 	int result = WSAStartup(MAKEWORD(2,2), &wsa_data);
-	if (result != NO_ERROR) {
+	if (result != 0) {
 		printf("Error at WSAStartup()\n");
-		return 0;
+		return EXIT_FAILURE;
 	}
 #endif
 	int my_socket;
@@ -38,5 +39,5 @@ int main(int argc, char *argv[]) {
 
 	closesocket(my_socket);
 	clearwinsock();
-	return 0;
+	return EXIT_SUCCESS;
 } // main end

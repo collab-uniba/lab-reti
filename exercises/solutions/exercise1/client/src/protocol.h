@@ -10,6 +10,7 @@
 
 #define PROTO_PORT 60000
 #define BUFFER_SIZE 64
+#define WELCOME_MSG "connessione avvenuta"
 
 typedef struct {
 	char string1[BUFFER_SIZE];

@@ -39,11 +39,18 @@ int recv_all(int socket, char *buf, int len) {
 	return total;
 }
 
-/* reads a line from stdin into s, removing the trailing newline */
+/* reads a line from stdin into s, removing the trailing newline;
+ * characters that do not fit in s are discarded */
 void read_line(const char *prompt, char *s, int size) {
 	printf("%s", prompt);
 	if (fgets(s, size, stdin) == NULL) {
 		s[0] = '\0';
+		return;
+	}
+	if (strchr(s, '\n') == NULL) {
+		int c;
+		while ((c = getchar()) != '\n' && c != EOF)
+			;
 	}
 	s[strcspn(s, "\r\n")] = '\0';
 }

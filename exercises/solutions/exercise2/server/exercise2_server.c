@@ -97,12 +97,19 @@ int main(void)
 		buffer[rcv_msg_size] = '\0';
 
 		/* client name (reverse lookup) and address: without NI_NAMEREQD,
-		   getnameinfo() returns the numeric address if the name does not exist */
+		   getnameinfo() returns the numeric address if the name does not exist;
+		   if it fails anyway (e.g. resolver error), fall back to inet_ntoa() */
 		char client_name[1025], client_ip[64];
-		getnameinfo((struct sockaddr *)&client_address, sizeof(client_address),
-					client_name, sizeof(client_name), NULL, 0, 0);
-		getnameinfo((struct sockaddr *)&client_address, sizeof(client_address),
-					client_ip, sizeof(client_ip), NULL, 0, NI_NUMERICHOST);
+		if (getnameinfo((struct sockaddr *)&client_address, sizeof(client_address),
+						client_ip, sizeof(client_ip), NULL, 0, NI_NUMERICHOST) != 0)
+		{
+			strcpy(client_ip, inet_ntoa(client_address.sin_addr));
+		}
+		if (getnameinfo((struct sockaddr *)&client_address, sizeof(client_address),
+						client_name, sizeof(client_name), NULL, 0, 0) != 0)
+		{
+			strcpy(client_name, client_ip);
+		}
 		printf("Ricevuti dati dal client nome: %s, indirizzo: %s\n", client_name, client_ip);
 
 		/* receive data from the client */

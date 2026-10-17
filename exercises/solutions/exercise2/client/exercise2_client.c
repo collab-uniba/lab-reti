@@ -35,6 +35,19 @@ void errorhandler(const char *error_message)
 	printf("%s\n", error_message);
 }
 
+/* removes the trailing newline read by fgets(); if the line did not fit
+   in the buffer, discards the rest so that it is not read as the next input */
+void end_line(char *s)
+{
+	if (strchr(s, '\n') == NULL)
+	{
+		int c;
+		while ((c = getchar()) != '\n' && c != EOF)
+			;
+	}
+	s[strcspn(s, "\r\n")] = '\0';
+}
+
 int main(void)
 {
 #if defined _WIN32
@@ -58,7 +71,7 @@ int main(void)
 		clearwinsock();
 		return EXIT_FAILURE;
 	}
-	buffer[strcspn(buffer, "\r\n")] = '\0';
+	end_line(buffer);
 	/* split buffer into name:port */
 	char *name = strtok(buffer, ":");
 	char *port = strtok(NULL, ":");
@@ -116,7 +129,7 @@ int main(void)
 	{
 		buffer[0] = '\0';
 	}
-	buffer[strcspn(buffer, "\r\n")] = '\0';
+	end_line(buffer);
 	/* send a message to the server */
 	len = strlen(buffer);
 	if (sendto(my_socket, buffer, len, 0,
@@ -145,8 +158,11 @@ int main(void)
 
 	/* print the received message with the server name and address */
 	char ip[64];
-	getnameinfo((struct sockaddr *)&from_address, sizeof(from_address), ip, sizeof(ip),
-				NULL, 0, NI_NUMERICHOST);
+	if (getnameinfo((struct sockaddr *)&from_address, sizeof(from_address), ip, sizeof(ip),
+					NULL, 0, NI_NUMERICHOST) != 0)
+	{
+		strcpy(ip, inet_ntoa(from_address.sin_addr));
+	}
 	printf("Stringa '%s' ricevuta dal server nome: %s indirizzo: %s\n", buffer, server_name, ip);
 
 	closesocket(my_socket);

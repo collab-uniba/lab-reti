@@ -22,8 +22,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define BUFFMAX 255
-#define PORT 56700
+#include "protocol.h"
 
 void clearwinsock()
 {
@@ -63,10 +62,10 @@ int main(void)
 	/* set the server address */
 	struct sockaddr_in server_address;
 	struct sockaddr_in client_address;
-	unsigned int client_address_length;
+	socklen_t client_address_length;
 	memset(&server_address, 0, sizeof(server_address));
 	server_address.sin_family = AF_INET;
-	server_address.sin_port = htons(PORT);
+	server_address.sin_port = htons(PROTO_PORT);
 	server_address.sin_addr.s_addr = inet_addr("127.0.0.1");
 
 	/* set server address */
@@ -79,16 +78,16 @@ int main(void)
 		return EXIT_FAILURE;
 	}
 
-	char buffer[BUFFMAX];
+	char buffer[BUFFER_SIZE];
 	int rcv_msg_size;
 	while (1)
 	{
 		puts("\nServer listening...");
 		fflush(stdout);
 		/* receive the Helo message from client */
-		memset(buffer, 0, BUFFMAX);
+		memset(buffer, 0, BUFFER_SIZE);
 		client_address_length = sizeof(client_address);
-		if ((rcv_msg_size = recvfrom(my_socket, buffer, BUFFMAX - 1, 0,
+		if ((rcv_msg_size = recvfrom(my_socket, buffer, BUFFER_SIZE - 1, 0,
 									 (struct sockaddr *)&client_address, &client_address_length)) < 0)
 		{
 			errorhandler("recvfrom() Helo failed");
@@ -113,9 +112,9 @@ int main(void)
 		printf("Ricevuti dati dal client nome: %s, indirizzo: %s\n", client_name, client_ip);
 
 		/* receive data from the client */
-		memset(buffer, 0, BUFFMAX);
+		memset(buffer, 0, BUFFER_SIZE);
 		client_address_length = sizeof(client_address);
-		if ((rcv_msg_size = recvfrom(my_socket, buffer, BUFFMAX - 1, 0,
+		if ((rcv_msg_size = recvfrom(my_socket, buffer, BUFFER_SIZE - 1, 0,
 									 (struct sockaddr *)&client_address, &client_address_length)) < 0)
 		{
 			errorhandler("recvfrom() data failed");
@@ -124,7 +123,7 @@ int main(void)
 		buffer[rcv_msg_size] = '\0';
 
 		/* remove vowels from buffer and send it back to the client */
-		char reply[BUFFMAX];
+		char reply[BUFFER_SIZE];
 		int j = 0;
 		for (int i = 0; buffer[i] != '\0'; i++)
 		{

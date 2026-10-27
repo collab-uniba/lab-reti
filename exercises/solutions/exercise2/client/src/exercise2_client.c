@@ -21,7 +21,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define BUFFMAX 255
+#include "protocol.h"
 
 void clearwinsock()
 {
@@ -62,10 +62,10 @@ int main(void)
 #endif
 
 	/* reads the name and port of the UDP server to contact (in the format srv.di.uniba.it:56700) */
-	char buffer[BUFFMAX];
-	memset(buffer, 0, BUFFMAX);
+	char buffer[BUFFER_SIZE];
+	memset(buffer, 0, BUFFER_SIZE);
 	puts("Enter the server name and port (in the format servername:port):");
-	if (fgets(buffer, BUFFMAX, stdin) == NULL)
+	if (fgets(buffer, BUFFER_SIZE, stdin) == NULL)
 	{
 		errorhandler("Error reading input");
 		clearwinsock();
@@ -81,7 +81,7 @@ int main(void)
 		clearwinsock();
 		return EXIT_FAILURE;
 	}
-	char server_name[BUFFMAX];
+	char server_name[BUFFER_SIZE];
 	strcpy(server_name, name);
 
 	/* resolve name and port: with service != NULL, getaddrinfo() also sets the port */
@@ -124,8 +124,8 @@ int main(void)
 	}
 
 	puts("Enter the string to send to the server:");
-	memset(buffer, 0, BUFFMAX);
-	if (fgets(buffer, BUFFMAX, stdin) == NULL)
+	memset(buffer, 0, BUFFER_SIZE);
+	if (fgets(buffer, BUFFER_SIZE, stdin) == NULL)
 	{
 		buffer[0] = '\0';
 	}
@@ -143,10 +143,10 @@ int main(void)
 
 	/* receive a message from the server */
 	struct sockaddr_in from_address;
-	unsigned int from_address_size = sizeof(from_address);
+	socklen_t from_address_size = sizeof(from_address);
 	int rcv_msg_size;
-	memset(buffer, 0, BUFFMAX);
-	if ((rcv_msg_size = recvfrom(my_socket, buffer, BUFFMAX - 1, 0,
+	memset(buffer, 0, BUFFER_SIZE);
+	if ((rcv_msg_size = recvfrom(my_socket, buffer, BUFFER_SIZE - 1, 0,
 								 (struct sockaddr *)&from_address, &from_address_size)) < 0)
 	{
 		errorhandler("Error receiving data");

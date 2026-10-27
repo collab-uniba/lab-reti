@@ -1,5 +1,6 @@
 #if defined _WIN32
 #include <winsock2.h>
+typedef int socklen_t; // POSIX type, not defined by winsock2.h
 #else
 #include <unistd.h>
 #include <sys/types.h>
@@ -84,7 +85,7 @@ int main(void) {
 	// accept new connection
 	struct sockaddr_in cad; // structure for the client address
 	int client_socket;       // socket descriptor for the client
-	int client_len;          // the size of the client address
+	socklen_t client_len;          // the size of the client address
 	printf("Waiting for a client to connect...\n\n");
 	while (1) {
 		client_len = sizeof(cad); // set the size of the client address

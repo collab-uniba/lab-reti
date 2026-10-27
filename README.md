@@ -78,4 +78,4 @@ On Windows, socket programs must be linked with the Winsock 2 library `ws2_32`:
 - in _Eclipse CDT_: _Project > Properties > C/C++ Build > Settings > MinGW C Linker > Libraries_, then add `ws2_32` (without the `lib` prefix and the `.a` extension);
 - from the command line: `gcc client.c -o client -lws2_32`.
 
-The sources in this repository select the Windows code with `#if defined _WIN32` (defined by every Windows compiler, also with `-std=c11`, whereas `WIN32` is not) and include `winsock2.h`, plus `ws2tcpip.h` for `getaddrinfo()` and `getnameinfo()`.
+The sources in this repository select the Windows code with `#if defined _WIN32` and include `winsock2.h`, plus `ws2tcpip.h` for `getaddrinfo()` and `getnameinfo()`.

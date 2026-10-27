@@ -1,6 +1,6 @@
 #if defined _WIN32
 #include <winsock2.h>
-typedef int socklen_t; // POSIX type, not defined by winsock2.h
+#include <ws2tcpip.h> // socklen_t
 #else
 #include <unistd.h>
 #include <sys/types.h>

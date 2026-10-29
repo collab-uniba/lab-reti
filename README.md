@@ -5,6 +5,7 @@
 - [Socket API reference (cheat sheet)](socket_API_reference.pdf)
 - [Client/server C source template](template.c)
 - [Lab exercises](exercises/)
+- [Code examples from the lab slides (TCP, UDP, DNS)](examples/)
 <!-- - [Lab exams](lab-exams/) -->
 
 ## Install Eclipse

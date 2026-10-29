@@ -10,4 +10,8 @@ Progettare ed implementare un’applicazione UDP client/server, conforme al segu
 6. Terminata la comunicazione con il client corrente, il server resta in attesa del client successivo (il server è sequenziale e serve un solo client alla volta).
 7. Il client legge la risposta inviata dal server e visualizza sullo std output la risposta, il *nome* del server inserito al passo 1 e l’*indirizzo* da cui è arrivata la risposta (Esempio `Stringa 'c' ricevuta dal server nome: srv.di.uniba.it indirizzo: 127.0.0.1`); dopodiché, il client termina.
 
-Per la risoluzione dei nomi si usino `getaddrinfo()` per ricavare l’indirizzo dal nome (client) e `getnameinfo()` per ricavare il nome dall’indirizzo (server). Per provare in locale un nome come `srv.di.uniba.it`, lo si può associare a `127.0.0.1` nel file hosts (`/etc/hosts` su Linux e macOS, `C:\Windows\System32\drivers\etc\hosts` su Windows). La risoluzione inversa di `127.0.0.1` restituisce di norma `localhost`, che è quindi il nome del client atteso nelle prove in locale.
+**Note:**
+
+- Per la risoluzione dei nomi si usino `getaddrinfo()` per ricavare l’indirizzo dal nome (client) e `getnameinfo()` per ricavare il nome dall’indirizzo (server).
+- Per provare in locale un nome come `srv.di.uniba.it`, lo si può associare a `127.0.0.1` nel file hosts (`/etc/hosts` su Linux e macOS, `C:\Windows\System32\drivers\etc\hosts` su Windows).
+- La risoluzione inversa di `127.0.0.1` restituisce di norma `localhost`, che è quindi il nome del client atteso nelle prove in locale.

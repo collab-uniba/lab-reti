@@ -25,6 +25,7 @@ void clearwinsock() {
 
 void errorhandler(char *errorMessage) {
 	printf("%s", errorMessage);
+	fflush(stdout);
 }
 
 /* TCP is a byte stream: a single recv() may return only part of the
@@ -87,6 +88,7 @@ int main(void) {
 	int client_socket;       // socket descriptor for the client
 	socklen_t client_len;          // the size of the client address
 	printf("Waiting for a client to connect...\n\n");
+	fflush(stdout);
 	while (1) {
 		client_len = sizeof(cad); // set the size of the client address
 		if ((client_socket = accept(my_socket, (struct sockaddr*) &cad,
@@ -99,6 +101,7 @@ int main(void) {
 		}
 
 		printf("Handling client %s\n", inet_ntoa(cad.sin_addr));
+		fflush(stdout);
 
 		// send the welcome message
 		char *s = WELCOME_MSG;
@@ -129,6 +132,7 @@ int main(void) {
 		}
 		printf("First string to upper: %s\n", m.string1);
 		printf("Second string to lower: %s\n", m.string2);
+		fflush(stdout);
 		// send manipulated data to client
 		if (send(client_socket, (char*) &m, sizeof(msg), 0) != (int) sizeof(msg)) {
 			errorhandler("send() sent a different number of bytes than expected\n");

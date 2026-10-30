@@ -47,15 +47,8 @@ $ gcc --version
 ```
 
 ### Windows
-Use command-line package managers, such as [chocolatey](https://chocolatey.org/install) or [WinGet](https://learn.microsoft.com/en-us/windows/package-manager/winget/)
+Use command-line package managers, such as [WinGet](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-#### Chocolatey
-From the command line, run:
-```bash
-> choco install mingw -y
-```
-
-#### WinGet
 From the command line, run:
 ```bash
 > winget install MSYS2.MSYS2

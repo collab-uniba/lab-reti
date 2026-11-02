@@ -96,6 +96,7 @@ int main(int argc, char *argv[]) {
 		printf("Handling client %s\n", inet_ntoa(cad.sin_addr));
 		// ECHO DELLA STRINGA RICEVUTA E CHIUSURA DELLA CONNESSIONE
 		char buf[BUFFERSIZE];
+		memset(buf, 0, BUFFERSIZE);
 		int bytes_rcvd = recv(client_socket, buf, BUFFERSIZE, 0);
 		if (bytes_rcvd > 0) send(client_socket, buf, bytes_rcvd, 0);
 		closesocket(client_socket);

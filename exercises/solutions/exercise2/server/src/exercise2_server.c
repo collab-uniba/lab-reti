@@ -24,6 +24,8 @@
 
 #include "protocol.h"
 
+#define HOSTNAME_LEN 1025 // enough for any host name (NI_MAXHOST)
+
 void clearwinsock()
 {
 #if defined _WIN32
@@ -98,7 +100,7 @@ int main(void)
 		/* client name (reverse lookup) and address: without NI_NAMEREQD,
 		   getnameinfo() returns the numeric address if the name does not exist;
 		   if it fails anyway (e.g. resolver error), fall back to inet_ntoa() */
-		char client_name[1025], client_ip[64];
+		char client_name[HOSTNAME_LEN], client_ip[INET_ADDRSTRLEN];
 		if (getnameinfo((struct sockaddr *)&client_address, sizeof(client_address),
 						client_ip, sizeof(client_ip), NULL, 0, NI_NUMERICHOST) != 0)
 		{

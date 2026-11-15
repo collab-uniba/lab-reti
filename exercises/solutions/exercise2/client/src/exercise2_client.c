@@ -157,7 +157,7 @@ int main(void)
 	buffer[rcv_msg_size] = '\0';
 
 	/* print the received message with the server name and address */
-	char ip[64];
+	char ip[INET_ADDRSTRLEN]; // 16 = "255.255.255.255" + '\0'
 	if (getnameinfo((struct sockaddr *)&from_address, sizeof(from_address), ip, sizeof(ip),
 					NULL, 0, NI_NUMERICHOST) != 0)
 	{

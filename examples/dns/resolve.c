@@ -43,9 +43,9 @@ int main(int argc, char **argv) {
 	}
 	char ip[INET_ADDRSTRLEN], host[HOSTNAME_LEN];
 	getnameinfo(res->ai_addr, res->ai_addrlen, ip, sizeof(ip),
-			NULL, 0, NI_NUMERICHOST);
+			NULL, 0, NI_NUMERICHOST); /* scrive in ip l'indirizzo in forma numerica */
 	if (getnameinfo(res->ai_addr, res->ai_addrlen, host, sizeof(host),
-			NULL, 0, NI_NAMEREQD) != 0)
+			NULL, 0, NI_NAMEREQD) != 0) /* scrive in host il nome, se esiste */
 		strcpy(host, "(non disponibile)");
 	printf("%s -> indirizzo %s, nome %s\n", argv[1], ip, host);
 	freeaddrinfo(res);

@@ -39,6 +39,7 @@ int main(void) {
 	}
 	for (p = res; p != NULL; p = p->ai_next) {
 		char ip[INET_ADDRSTRLEN]; /* 16 = "255.255.255.255" + '\0' */
+		/* scrive in ip l'indirizzo in forma numerica, es. "127.0.0.1" */
 		getnameinfo(p->ai_addr, p->ai_addrlen, ip, sizeof(ip),
 				NULL, 0, NI_NUMERICHOST);
 		printf("Risultato di getaddrinfo(%s): %s\n", name, ip);
@@ -51,6 +52,7 @@ int main(void) {
 	sa.sin_addr.s_addr = inet_addr("127.0.0.1");
 
 	char host[HOSTNAME_LEN];
+	/* scrive in host il nome; se non esiste, errore (NI_NAMEREQD) */
 	err = getnameinfo((struct sockaddr *) &sa, sizeof(sa),
 			host, sizeof(host), NULL, 0, NI_NAMEREQD);
 	if (err != 0) {

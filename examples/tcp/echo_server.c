@@ -84,6 +84,7 @@ int main(int argc, char *argv[]) {
 	int client_socket;       // socket descriptor for the client
 	socklen_t client_len;    // the size of the client address
 	printf("Waiting for a client to connect...\n");
+	fflush(stdout);
 	while (1) { /* oppure for (;;) */
 		client_len = sizeof(cad); // set the size of the client address
 		if ((client_socket = accept(my_socket, (struct sockaddr *)&cad,
@@ -94,6 +95,7 @@ int main(int argc, char *argv[]) {
 			return EXIT_FAILURE;
 		}
 		printf("Handling client %s\n", inet_ntoa(cad.sin_addr));
+		fflush(stdout);
 		// ECHO DELLA STRINGA RICEVUTA E CHIUSURA DELLA CONNESSIONE
 		char buf[BUFFERSIZE];
 		memset(buf, 0, BUFFERSIZE);
